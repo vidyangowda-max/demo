@@ -1,4 +1,8 @@
 this is my first git file
 this is the second line.
 this change is from gitHub
+<<<<<<< HEAD
 this change was made on githubfor question13
+=======
+local update
+>>>>>>> f7362d7 (local update to file1.txt)
