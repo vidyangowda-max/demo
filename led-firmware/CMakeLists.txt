@@ -7,9 +7,14 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(led_test
     tests/led_test.c
+    src/led.c
 )
 
 target_include_directories(led_test PRIVATE ${CMAKE_SOURCE_DIR}/include)
+
+target_compile_options(led_test PRIVATE -std=c99 -Wall -Wextra)
+
+target_link_options(led_test PRIVATE)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 

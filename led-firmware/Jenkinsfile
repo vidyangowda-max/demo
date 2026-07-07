@@ -44,8 +44,10 @@ pipeline {
                     sh '''
                     set -e
                     mkdir -p "${BUILD_DIR}"
-                    cc -std=c99 -Wall -Wextra -Iinclude tests/led_test.c -o "${BUILD_DIR}/led_test"
-                    "${BUILD_DIR}/led_test"
+                    cd "${BUILD_DIR}"
+                    cmake .. -DCMAKE_TOOLCHAIN_FILE=""
+                    cmake --build . --target led_test
+                    ./led_test
                     '''
                 }
             }
