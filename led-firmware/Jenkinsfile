@@ -1,12 +1,12 @@
 // Agent linux-agent
 pipeline {
     agent { label 'linux-agent' }
+    options {
+        timestamps()
+    }
     environment {
         BUILD_DIR = 'build'
         PROJECT_DIR = 'led-firmware'
-    }
-    options {
-        timestamps()
     }
     stages {
         stage('Checkout') {
@@ -107,6 +107,5 @@ pipeline {
         failure {
             echo 'Build failed.'
         }
-    }
     }
 }
