@@ -12,6 +12,7 @@ pipeline {
     environment {
         BUILD_DIR = 'build'
         PROJECT_DIR = 'led-firmware'
+        PATH = "/home/ec2-user/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi/bin:${env.PATH}"
     }
     stages {
         stage('Checkout') {
