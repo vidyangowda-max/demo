@@ -29,33 +29,33 @@ pipeline {
 
         stage('Compile') {
             steps {
-                sh 'cd vehicle-parking && mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Unit Tests') {
             steps {
-                sh 'cd vehicle-parking && mvn test -Dtest=**/*Test.java'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                sh 'cd vehicle-parking && mvn package'
+                sh 'mvn package'
             }
         }
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'vehicle-parking/target/*.jar'
-                archiveArtifacts artifacts: 'vehicle-parking/target/surefire-reports/**', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'target/*.jar'
+                archiveArtifacts artifacts: 'target/surefire-reports/**', allowEmptyArchive: true
             }
         }
     }
 
     post {
         always {
-            junit allowEmptyResults: true, testResults: 'vehicle-parking/target/surefire-reports/*.xml'
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
             echo "=========================================="
             echo "Unit Test Results Processed and Archived"
             echo "=========================================="
