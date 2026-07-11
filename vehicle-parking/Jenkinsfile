@@ -28,34 +28,40 @@ pipeline {
         }
 
         stage('Compile') {
-            steps {
-                sh 'mvn clean compile'
-            }
+    steps {
+        dir('vehicle-parking') {
+            sh 'mvn clean compile'
         }
+    }
+}
 
-        stage('Unit Tests') {
-            steps {
-                sh 'mvn test'
-            }
+stage('Unit Tests') {
+    steps {
+        dir('vehicle-parking') {
+            sh 'mvn test'
         }
+    }
+}
 
-        stage('Package') {
-            steps {
-                sh 'mvn package'
-            }
+stage('Package') {
+    steps {
+        dir('vehicle-parking') {
+            sh 'mvn package'
         }
+    }
+}
 
         stage('Archive') {
             steps {
-                archiveArtifacts artifacts: 'target/*.jar'
-                archiveArtifacts artifacts: 'target/surefire-reports/**', allowEmptyArchive: true
+                archiveArtifacts artifacts: 'vehicle-parking/target/*.jar'
+                archiveArtifacts artifacts: 'vehicle-parking/target/surefire-reports/**', allowEmptyArchive: true
             }
         }
     }
 
     post {
         always {
-            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
+            junit allowEmptyResults: true, testResults: 'vehicle-parking/target/surefire-reports/*.xml'
             echo "=========================================="
             echo "Unit Test Results Processed and Archived"
             echo "=========================================="
