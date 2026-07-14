@@ -1,10 +1,10 @@
 name: .NET Console CI
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build-and-run:
@@ -30,3 +30,6 @@ jobs:
 
       - name: Run Application
         run: dotnet run
+
+      - name: Post Setup .NET
+        run: echo "Build completed successfully!"
