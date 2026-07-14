@@ -14,19 +14,14 @@ on:
                                             - name: Checkout code
                                                     uses: actions/checkout@v4
 
-                                                          - name: Setup .NET
-                                                                  uses: actions/setup-dotnet@v4
-                                                                          with:
-                                                                                      dotnet-version: '8.0.x'
+                                                          - name: Verify .NET
+                                                                  run: dotnet --version
 
-                                                                                            - name: Verify .NET
-                                                                                                    run: dotnet --version
+                                                                        - name: Restore packages
+                                                                                run: dotnet restore ./dotnet-demo/dotnet-demo.csproj
 
-                                                                                                          - name: Restore packages
-                                                                                                                  run: dotnet restore ./dotnet-demo/dotnet-demo.csproj
+                                                                                      - name: Build application
+                                                                                              run: dotnet build ./dotnet-demo/dotnet-demo.csproj --configuration Release
 
-                                                                                                                        - name: Build application
-                                                                                                                                run: dotnet build ./dotnet-demo/dotnet-demo.csproj --configuration Release
-
-                                                                                                                                      - name: Run Application
-                                                                                                                                              run: dotnet run --project ./dotnet-demo/dotnet-demo.csproj:
+                                                                                                    - name: Run Application
+                                                                                                            run: dotnet run --project ./dotnet-demo/dotnet-demo.csproj
