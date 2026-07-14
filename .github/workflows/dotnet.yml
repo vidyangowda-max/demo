@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build-and-run:
@@ -21,6 +24,12 @@ jobs:
 
       - name: Build application
         run: dotnet build ./dotnet-demo/dotnet-demo.csproj --configuration Release --no-restore
+
+      - name: Lint
+        run: dotnet format ./dotnet-demo/dotnet-demo.csproj --verify-no-changes
+
+      - name: Run Unit Tests
+        run: dotnet test ./dotnet-demo/dotnet-demo.csproj --logger "trx"
 
       - name: Run Application
         run: dotnet run --project ./dotnet-demo/dotnet-demo.csproj
