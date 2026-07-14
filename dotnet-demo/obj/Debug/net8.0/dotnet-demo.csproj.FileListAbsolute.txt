@@ -1,0 +1,15 @@
+/home/ec2-user/demo/dotnet-demo/bin/Debug/net8.0/dotnet-demo
+/home/ec2-user/demo/dotnet-demo/bin/Debug/net8.0/dotnet-demo.deps.json
+/home/ec2-user/demo/dotnet-demo/bin/Debug/net8.0/dotnet-demo.runtimeconfig.json
+/home/ec2-user/demo/dotnet-demo/bin/Debug/net8.0/dotnet-demo.dll
+/home/ec2-user/demo/dotnet-demo/bin/Debug/net8.0/dotnet-demo.pdb
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.GeneratedMSBuildEditorConfig.editorconfig
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.AssemblyInfoInputs.cache
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.AssemblyInfo.cs
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.csproj.CoreCompileInputs.cache
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.sourcelink.json
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.dll
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/refint/dotnet-demo.dll
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.pdb
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/dotnet-demo.genruntimeconfig.cache
+/home/ec2-user/demo/dotnet-demo/obj/Debug/net8.0/ref/dotnet-demo.dll

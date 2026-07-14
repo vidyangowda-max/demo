@@ -1,0 +1,32 @@
+name: .NET Console CI
+
+on:
+    push:
+          branches:
+                  - main
+                    workflow_dispatch:
+
+                      jobs:
+                          build-and-run:
+                                runs-on: self-hosted
+
+                                    steps:
+                                            - name: Checkout code
+                                                    uses: actions/checkout@v4
+
+                                                          - name: Setup .NET
+                                                                  uses: actions/setup-dotnet@v4
+                                                                          with:
+                                                                                      dotnet-version: '8.0.x'
+
+                                                                                            - name: Verify .NET
+                                                                                                    run: dotnet --version
+
+                                                                                                          - name: Restore packages
+                                                                                                                  run: dotnet restore ./dotnet-demo/dotnet-demo.csproj
+
+                                                                                                                        - name: Build application
+                                                                                                                                run: dotnet build ./dotnet-demo/dotnet-demo.csproj --configuration Release
+
+                                                                                                                                      - name: Run Application
+                                                                                                                                              run: dotnet run --project ./dotnet-demo/dotnet-demo.csproj:
